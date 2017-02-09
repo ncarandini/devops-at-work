@@ -1,4 +1,8 @@
 ﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+
+@using Microsoft.AspNetCore.Hosting;
+@inject IHostingEnvironment HostingEnvironment
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">DevOpsAtWork.DemoWebApp</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">DevOps@tWork</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -42,9 +46,13 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
         <footer>
-            <p>&copy; 2017 - DevOpsAtWork.DemoWebApp</p>
+            <div class="col-md-6">
+                <p>&copy; 2017 - DevOpsAtWork.DemoWebApp</p>
+            </div>
+            <div class="col-md-6 text-right">
+                <p>Environment: @HostingEnvironment.EnvironmentName</p>
+            </div>
         </footer>
     </div>
 

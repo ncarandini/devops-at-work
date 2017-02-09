@@ -52,6 +52,10 @@ namespace DevOpsAtWork.DemoWebApp
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            // Add Environment string
+            services.Configure<AppEnvironment>(
+                Configuration.GetSection("ApplicationConfigurations"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
